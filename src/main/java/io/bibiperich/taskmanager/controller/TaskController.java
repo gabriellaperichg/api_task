@@ -41,9 +41,9 @@ public class TaskController {
         return repository.findById(id)
             .map(task -> {
                 task.setTitle(taskData.getTitle());
-                task.setDescription(taskData.getDescription());
                 task.setResponsible(taskData.getResponsible());
                 task.setCompleted(taskData.getCompleted());
+                task.setDueDate(taskData.getDueDate());
                 repository.save(task);
                 return ResponseEntity.noContent().build();
             }).orElse(ResponseEntity.notFound().build());

@@ -1,5 +1,6 @@
 package io.bibiperich.taskmanager.model;
 
+import java.time.LocalDate;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,9 +10,9 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String description;
     private String responsible;
     private boolean completed;
+    private LocalDate dueDate;
 
 
     public Long getId() {
@@ -30,14 +31,6 @@ public class Task {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getResponsible() {
         return responsible;
     }
@@ -52,5 +45,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 }
